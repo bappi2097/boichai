@@ -23,9 +23,7 @@
 
                         </div>
                     </div>
-                    <!-- End User Profile-->
                 </li>
-                <!-- User Profile-->
                 <li class="sidebar-item">
                     <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/" aria-expanded="false">
                         <i class="mdi mdi-view-dashboard"></i>
@@ -33,9 +31,23 @@
                     </a>
                 </li>
                 <li class="sidebar-item">
+                    <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                        href="{{ route('home.languages.index') }}" aria-expanded="false">
+                        <i class="mdi mdi-alphabetical"></i>
+                        <span class="hide-menu">Language</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                        href="{{ route('home.countries.index') }}" aria-expanded="false">
+                        <i class="mdi mdi-earth"></i>
+                        <span class="hide-menu">Country</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
                     <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)"
                         aria-expanded="false">
-                        <i class="fas fa-user"></i>
+                        <i class="mdi mdi-book-multiple"></i>
                         <span class="hide-menu"> Books</span>
                     </a>
                     <ul aria-expanded="false" class="collapse first-level">

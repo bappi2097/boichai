@@ -1,6 +1,7 @@
 {
-    "/js/app.js": "/js/app.js?id=f62274e5a53599e57563",
+    "/js/app.js": "/js/app.js?id=ae11cce6cde9cd72bed6",
     "/dist/css/style.min.css": "/dist/css/style.min.css?id=0054a86f07d8df653e87",
+    "/css/home.css": "/css/home.css?id=b90f44364ea78b4ef15f",
     "/assets/extra-libs/datatables.net-bs4/css/dataTables.bootstrap4.css": "/assets/extra-libs/datatables.net-bs4/css/dataTables.bootstrap4.css?id=436dfd0209078446a131",
     "/assets/libs/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css": "/assets/libs/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css?id=18e0651287e948393a76",
     "/assets/libs/summernote-0.8.18-dist/summernote-lite.css": "/assets/libs/summernote-0.8.18-dist/summernote-lite.css?id=b62d89efebbd7e2c9264",
@@ -51,9 +52,11 @@
     "/assets/images/custom-select.png": "/assets/images/custom-select.png?id=deb01c74f4f78add7b0d",
     "/assets/images/diabetes-test.svg": "/assets/images/diabetes-test.svg?id=cea1cad838df0c8b3d48",
     "/assets/images/favicon.png": "/assets/images/favicon.png?id=8e60a57389120626653c",
+    "/assets/images/hero.svg": "/assets/images/hero.svg?id=aff8b5f25afdf44005a7",
     "/assets/images/logo-icon.png": "/assets/images/logo-icon.png?id=6c95de5dd95af6c95dbc",
     "/assets/images/logo-light-icon.png": "/assets/images/logo-light-icon.png?id=f1567e6ef59ee9c58334",
     "/assets/images/logo-light-text.png": "/assets/images/logo-light-text.png?id=78f1877b6b7c28dafbb1",
     "/assets/images/logo-text.png": "/assets/images/logo-text.png?id=2ef616cd6d1353d095be",
+    "/assets/images/logo.svg": "/assets/images/logo.svg?id=3c5efc848514bfe4bca7",
     "/assets/images/pressure-gauge.svg": "/assets/images/pressure-gauge.svg?id=30e738d88d0ece01cae2"
 }
