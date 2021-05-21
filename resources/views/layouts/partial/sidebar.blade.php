@@ -44,6 +44,22 @@
                         <span class="hide-menu">Country</span>
                     </a>
                 </li>
+
+                <li class="sidebar-item">
+                    <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                        href="{{ route('home.currencies.index') }}" aria-expanded="false">
+                        <i class="mdi mdi-currency-usd"></i>
+                        <span class="hide-menu">Currency</span>
+                    </a>
+                </li>
+
+                <li class="sidebar-item">
+                    <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                        href="{{ route('home.authors.index') }}" aria-expanded="false">
+                        <i class="mdi mdi-human-male"></i>
+                        <span class="hide-menu">Author</span>
+                    </a>
+                </li>
                 <li class="sidebar-item">
                     <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)"
                         aria-expanded="false">
@@ -52,13 +68,13 @@
                     </a>
                     <ul aria-expanded="false" class="collapse first-level">
                         <li class="sidebar-item">
-                            <a href="/" class="sidebar-link">
+                            <a href="{{ route('home.books.create') }}" class="sidebar-link">
                                 <i class="fas fa-user-circle"></i>
                                 <span class="hide-menu"> Create Book </span>
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a href="/" class="sidebar-link">
+                            <a href="{{ route('home.books.index') }}" class="sidebar-link">
                                 <i class="fas fa-user-circle"></i>
                                 <span class="hide-menu"> Book List
                                 </span>

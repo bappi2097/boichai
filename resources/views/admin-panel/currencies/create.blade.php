@@ -5,10 +5,10 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
-                    <form action="{{ route('home.countries.store') }}" method="POST">
+                    <form action="{{ route('home.currencies.store') }}" method="POST">
                         @csrf
                         <div class="card-body">
-                            <a href="{{ route('home.countries.index') }}" class="btn waves-effect waves-light btn-info">
+                            <a href="{{ route('home.currencies.index') }}" class="btn waves-effect waves-light btn-info">
                                 <i class="mdi mdi-arrow-left"></i> Back
                             </a>
                             <br>
@@ -21,7 +21,7 @@
                                                 <div class="form-group">
                                                     <label class="col-md-12">Name</label>
                                                     <div class="col-md-12">
-                                                        <input type="text" placeholder="United State of America" name="name"
+                                                        <input type="text" placeholder="Dollor" name="name"
                                                             value="{{ old('name') }}"
                                                             class="form-control form-control-line">
                                                         @error('name')
@@ -34,7 +34,7 @@
                                                 <div class="form-group">
                                                     <label class="col-md-12">Code</label>
                                                     <div class="col-md-12">
-                                                        <input type="text" placeholder="USA" name="code"
+                                                        <input type="text" placeholder="USD" name="code"
                                                             value="{{ old('code') }}"
                                                             class="form-control form-control-line">
                                                         @error('code')
@@ -44,7 +44,19 @@
                                                         @enderror
                                                     </div>
                                                 </div>
-
+                                                <div class="form-group">
+                                                    <label class="col-md-12">Symbol</label>
+                                                    <div class="col-md-12">
+                                                        <input type="text" placeholder="$" name="symbol"
+                                                            value="{{ old('symbol') }}"
+                                                            class="form-control form-control-line">
+                                                        @error('symbol')
+                                                            <span class="text-danger">
+                                                                <strong>{{ $message }}</strong>
+                                                            </span>
+                                                        @enderror
+                                                    </div>
+                                                </div>
                                                 <div class="form-group">
                                                     <div class="col-sm-12">
                                                         <button class="btn btn-info text-white">Save</button>
@@ -53,7 +65,7 @@
                                             </form>
                                         </div>
                                     </div>
-                                </div>
+                                </div> <!-- Column -->
                             </div>
                         </div>
                     </form>

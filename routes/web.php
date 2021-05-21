@@ -44,14 +44,34 @@ Route::group(['middleware' => ['auth'], 'as' => 'home.'], function () {
         Route::delete('/{country}', [\App\Http\Controllers\CountryController::class, 'destroy'])->name('delete');
     });
 
+    Route::group(['as' => 'currencies.', 'prefix' => 'currencies'], function () {
+        Route::get('/', [\App\Http\Controllers\CurrencyController::class, 'index'])->name('index');
+        Route::get('/create', [\App\Http\Controllers\CurrencyController::class, 'create'])->name('create');
+        Route::post('/', [\App\Http\Controllers\CurrencyController::class, 'store'])->name('store');
+        Route::get('/{currency}', [\App\Http\Controllers\CurrencyController::class, 'show'])->name('show');
+        Route::get('edit/{currency}', [\App\Http\Controllers\CurrencyController::class, 'edit'])->name('edit');
+        Route::put('/{currency}', [\App\Http\Controllers\CurrencyController::class, 'update'])->name('update');
+        Route::delete('/{currency}', [\App\Http\Controllers\CurrencyController::class, 'destroy'])->name('delete');
+    });
 
-    // Route::group(['as' => 'books.', 'prefix' => 'books'], function () {
-    //     Route::get('/', [\App\Http\Controllers\BookController::class, 'index'])->name('index');
-    //     Route::get('/create', [\App\Http\Controllers\BookController::class, 'create'])->name('create');
-    //     Route::post('/', [\App\Http\Controllers\BookController::class, 'store'])->name('store');
-    //     Route::get('/{book}', [\App\Http\Controllers\BookController::class, 'show'])->name('show');
-    //     Route::get('edit/{book}', [\App\Http\Controllers\BookController::class, 'edit'])->name('edit');
-    //     Route::put('/{book}', [\App\Http\Controllers\BookController::class, 'update'])->name('update');
-    //     Route::delete('/{book}', [\App\Http\Controllers\BookController::class, 'destroy'])->name('delete');
-    // });
+    Route::group(['as' => 'authors.', 'prefix' => 'authors'], function () {
+        Route::get('/', [\App\Http\Controllers\AuthorController::class, 'index'])->name('index');
+        Route::get('/create', [\App\Http\Controllers\AuthorController::class, 'create'])->name('create');
+        Route::post('/', [\App\Http\Controllers\AuthorController::class, 'store'])->name('store');
+        Route::get('/{author}', [\App\Http\Controllers\AuthorController::class, 'show'])->name('show');
+        Route::get('edit/{author}', [\App\Http\Controllers\AuthorController::class, 'edit'])->name('edit');
+        Route::put('/{author}', [\App\Http\Controllers\AuthorController::class, 'update'])->name('update');
+        Route::delete('/{author}', [\App\Http\Controllers\AuthorController::class, 'destroy'])->name('delete');
+    });
+
+
+    Route::group(['as' => 'books.', 'prefix' => 'books'], function () {
+        Route::get('/', [\App\Http\Controllers\BookController::class, 'index'])->name('index');
+        Route::get('/create', [\App\Http\Controllers\BookController::class, 'create'])->name('create');
+        Route::post('/', [\App\Http\Controllers\BookController::class, 'store'])->name('store');
+        Route::get('/{book}', [\App\Http\Controllers\BookController::class, 'show'])->name('show');
+        Route::get('edit/{book}', [\App\Http\Controllers\BookController::class, 'edit'])->name('edit');
+        Route::put('/{book}', [\App\Http\Controllers\BookController::class, 'update'])->name('update');
+        Route::delete('/{book}', [\App\Http\Controllers\BookController::class, 'destroy'])->name('delete');
+    });
 });

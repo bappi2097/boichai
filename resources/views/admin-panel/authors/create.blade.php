@@ -5,10 +5,10 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
-                    <form action="{{ route('home.countries.store') }}" method="POST">
+                    <form action="{{ route('home.authors.store') }}" method="POST">
                         @csrf
                         <div class="card-body">
-                            <a href="{{ route('home.countries.index') }}" class="btn waves-effect waves-light btn-info">
+                            <a href="{{ route('home.authors.index') }}" class="btn waves-effect waves-light btn-info">
                                 <i class="mdi mdi-arrow-left"></i> Back
                             </a>
                             <br>
@@ -21,7 +21,7 @@
                                                 <div class="form-group">
                                                     <label class="col-md-12">Name</label>
                                                     <div class="col-md-12">
-                                                        <input type="text" placeholder="United State of America" name="name"
+                                                        <input type="text" placeholder="John Doe" name="name"
                                                             value="{{ old('name') }}"
                                                             class="form-control form-control-line">
                                                         @error('name')
@@ -32,12 +32,29 @@
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label class="col-md-12">Code</label>
+                                                    <label class="col-md-12">Address</label>
                                                     <div class="col-md-12">
-                                                        <input type="text" placeholder="USA" name="code"
-                                                            value="{{ old('code') }}"
+                                                        <textarea placeholder="221B, Baker St." name="address"
+                                                            class="form-control">{{ old('address') }}</textarea>
+                                                        @error('address')
+                                                            <span class="text-danger">
+                                                                <strong>{{ $message }}</strong>
+                                                            </span>
+                                                        @enderror
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-md-12">Country</label>
+                                                    <div class="col-md-12">
+                                                        <select name="country_id" id="country_id"
                                                             class="form-control form-control-line">
-                                                        @error('code')
+                                                            @foreach ($countries as $country)
+                                                                <option value="{{ $country->id }}">
+                                                                    {{ $country->name }}
+                                                                </option>
+                                                            @endforeach
+                                                        </select>
+                                                        @error('country_id')
                                                             <span class="text-danger">
                                                                 <strong>{{ $message }}</strong>
                                                             </span>
@@ -53,7 +70,7 @@
                                             </form>
                                         </div>
                                     </div>
-                                </div>
+                                </div> <!-- Column -->
                             </div>
                         </div>
                     </form>

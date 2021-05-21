@@ -14,7 +14,7 @@ class AddForeignKeyToAuthors extends Migration
     public function up()
     {
         Schema::table('authors', function (Blueprint $table) {
-            $table->foreignId('country_id')->constrained('countries');
+            $table->foreignId('country_id')->constrained('countries')->after('address');
         });
     }
 

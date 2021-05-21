@@ -18,6 +18,7 @@ class Author extends Model
     protected $fillable = [
         'name',
         'address',
+        'country_id',
     ];
 
     /**
@@ -31,12 +32,12 @@ class Author extends Model
     }
 
     /**
-     * contry
+     * country
      *
      * @return \App\Models\Country
      */
     public function country()
     {
-        return $this->hasOne(Country::class);
+        return $this->belongsTo(Country::class);
     }
 }

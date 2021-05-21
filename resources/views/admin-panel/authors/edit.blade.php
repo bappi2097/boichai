@@ -6,7 +6,7 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-body">
-                        <a href="{{ route('home.countries.index') }}" class="btn waves-effect waves-light btn-info">
+                        <a href="{{ route('home.authors.index') }}" class="btn waves-effect waves-light btn-info">
                             <i class="mdi mdi-arrow-left"></i> Back
                         </a>
                         <br>
@@ -16,14 +16,14 @@
                                 <div class="card">
                                     <div class="card-body">
                                         <form class="form-horizontal form-material mx-2"
-                                            action="{{ route('home.countries.update', $country->id) }}" method="POST">
+                                            action="{{ route('home.authors.update', $author->id) }}" method="POST">
                                             @csrf
                                             @method('PUT')
                                             <div class="form-group">
                                                 <label class="col-md-12">Name</label>
                                                 <div class="col-md-12">
-                                                    <input type="text" placeholder="United State of America" name="name"
-                                                        value="{{ $country->name }}"
+                                                    <input type="text" placeholder="John Doe" name="name"
+                                                        value="{{ $author->name }}"
                                                         class="form-control form-control-line">
                                                     @error('name')
                                                         <span class="text-danger">
@@ -33,12 +33,30 @@
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label class="col-md-12">Code</label>
+                                                <label class="col-md-12">Address</label>
                                                 <div class="col-md-12">
-                                                    <input type="text" placeholder="USA" name="code"
-                                                        value="{{ $country->code }}"
+                                                    <textarea placeholder="221B, Baker St." name="address"
+                                                        class="form-control">{{ $author->address }}</textarea>
+                                                    @error('address')
+                                                        <span class="text-danger">
+                                                            <strong>{{ $message }}</strong>
+                                                        </span>
+                                                    @enderror
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-md-12">Country</label>
+                                                <div class="col-md-12">
+                                                    <select name="country_id" id="country_id"
                                                         class="form-control form-control-line">
-                                                    @error('code')
+                                                        @foreach ($countries as $country)
+                                                            <option value="{{ $country->id }}"
+                                                                {{ selected($country->id, $author->country_id) }}>
+                                                                {{ $country->name }}
+                                                            </option>
+                                                        @endforeach
+                                                    </select>
+                                                    @error('country_id')
                                                         <span class="text-danger">
                                                             <strong>{{ $message }}</strong>
                                                         </span>
