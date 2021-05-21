@@ -73,5 +73,6 @@ Route::group(['middleware' => ['auth'], 'as' => 'home.'], function () {
         Route::get('edit/{book}', [\App\Http\Controllers\BookController::class, 'edit'])->name('edit');
         Route::put('/{book}', [\App\Http\Controllers\BookController::class, 'update'])->name('update');
         Route::delete('/{book}', [\App\Http\Controllers\BookController::class, 'destroy'])->name('delete');
+        Route::get('api/{data}', [\App\Http\Controllers\BookController::class, 'apiData'])->name('api-data');
     });
 });

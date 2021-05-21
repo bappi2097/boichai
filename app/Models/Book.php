@@ -17,13 +17,12 @@ class Book extends Model
      */
     protected $fillable = [
         'name',
-        'price',
+        'isbn',
+        'quantity',
+        'dimention',
         'description',
         'publisher_name',
-        'quantity',
         'publication_date',
-        'dimention',
-        'isbn',
     ];
 
     /**
@@ -41,7 +40,7 @@ class Book extends Model
      *
      * @return \App\Models\Currency
      */
-    public function currencies()
+    public function prices()
     {
         return $this->belongsToMany(Currency::class)->withPivot('amount');
     }
