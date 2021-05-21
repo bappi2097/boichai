@@ -51,7 +51,7 @@
             </ul>
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link waves-effect waves-dark" href="{{ route('landing.home') }}">Home</a>
+                    <a class="nav-link waves-effect waves-dark" href="{{ route('home') }}">Home</a>
                 </li>
             </ul>
             <!-- ============================================================== -->
@@ -64,7 +64,7 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic" href="#"
                         id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <img src="{{ asset(auth()->user()->image ?: 'assets/images/users/male_avatar.svg') }}"
+                        <img src="{{ asset(auth()->user()->image ?? 'assets/images/users/male_avatar.svg') }}"
                             alt="user" class="rounded-circle" width="31" />
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end user-dd animated" aria-labelledby="navbarDropdown">

@@ -15,10 +15,10 @@
                         <div class="user-content hide-menu m-l-10">
                             <a class="" id="Userdd">
                                 <h5 class="m-b-0 user-name font-medium">
-                                    {{ auth()->user()->name ?: 'John Doe' }}
+                                    {{ auth()->user()->name ?? 'John Doe' }}
                                 </h5>
                                 <span
-                                    class="op-5 user-email">{{ auth()->user()->email ?: 'no.email@mail.com' }}</span>
+                                    class="op-5 user-email">{{ auth()->user()->email ?? 'no.email@mail.com' }}</span>
                             </a>
 
                         </div>
