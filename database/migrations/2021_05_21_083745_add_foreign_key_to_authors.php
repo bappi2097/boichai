@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddForeignKeyToBooks extends Migration
+class AddForeignKeyToAuthors extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class AddForeignKeyToBooks extends Migration
      */
     public function up()
     {
-        Schema::table('books', function (Blueprint $table) {
-            $table->foreignId('author_id')->constrained('authors')->onDelete('cascade');
+        Schema::table('authors', function (Blueprint $table) {
+            $table->foreignId('country_id')->constrained('countries');
         });
     }
 
@@ -25,7 +25,7 @@ class AddForeignKeyToBooks extends Migration
      */
     public function down()
     {
-        Schema::table('books', function (Blueprint $table) {
+        Schema::table('authors', function (Blueprint $table) {
             //
         });
     }
