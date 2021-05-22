@@ -171,7 +171,7 @@
                                                                     </label>
                                                                     <div class="col-md-12">
                                                                         <input type="number" placeholder="49.0"
-                                                                            value="{{ old('amount') }}" min="0"
+                                                                            value="{{ old('amount') }}" min="0" value="0"
                                                                             name="amount[]" required
                                                                             class="form-control form-control-line">
                                                                     </div>
@@ -191,13 +191,6 @@
                                                                         </span>
                                                                     @enderror
                                                                 </div>
-                                                            </td>
-                                                            <td class="">
-                                                                <button type="button"
-                                                                    class="btn btn-outline-danger rounded btn-sm"
-                                                                    onclick="deleteRow(this)">
-                                                                    <i class="mdi mdi-delete"></i>
-                                                                </button>
                                                             </td>
                                                         </tr>
                                                     </tbody>
@@ -246,43 +239,43 @@
             $("#add_document").on('click', () => {
                 $("#file_table").append(
                     `<tr class="d_row">
-                    <td>
-                        <div class="form-group">
-                            <label class="col-md-12">
-                                Amount
-                            </label>
-                            <div class="col-md-12">
-                                <input type="number" placeholder="49.0"
-                                    value="{{ old('amount') }}" min="0"
-                                    name="amount[]" required
-                                    class="form-control form-control-line">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <select name="currency_id[]" id="currency_id" 
-                                class="form-control form-control-line"
-                                required>` + `
-                                @foreach ($currencies as $currency)
-                                    <option value="{{ $currency->id }}">
-                                        {{ $currency->name }}
-                                    </option>
-                                @endforeach` + `
-                            </select>
-                            @error('currency_id')
-                                <span class="text-danger">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
-                        </div>
-                    </td>
-                    <td class="">
-                        <button type="button"
-                            class="btn btn-outline-danger rounded btn-sm"
-                            onclick="deleteRow(this)">
-                            <i class="mdi mdi-delete"></i>
-                        </button>
-                    </td>
-                    </tr>`
+                            <td>
+                                <div class="form-group">
+                                    <label class="col-md-12">
+                                        Amount
+                                    </label>
+                                    <div class="col-md-12">
+                                        <input type="number" placeholder="49.0"
+                                            value="{{ old('amount') }}" min="0"
+                                            name="amount[]" required
+                                            class="form-control form-control-line">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <select name="currency_id[]" id="currency_id" 
+                                        class="form-control form-control-line"
+                                        required>` + `
+                                        @foreach ($currencies as $currency)
+                                            <option value="{{ $currency->id }}">
+                                                {{ $currency->name }}
+                                            </option>
+                                        @endforeach` + `
+                                    </select>
+                                    @error('currency_id')
+                                        <span class="text-danger">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                            </td>
+                            <td class="">
+                                <button type="button"
+                                    class="btn btn-outline-danger rounded btn-sm"
+                                    onclick="deleteRow(this)">
+                                    <i class="mdi mdi-delete"></i>
+                                </button>
+                            </td>
+                            </tr>`
                 );
             });
         });

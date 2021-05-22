@@ -67,12 +67,13 @@ Route::group(['middleware' => ['auth'], 'as' => 'home.'], function () {
 
     Route::group(['as' => 'books.', 'prefix' => 'books'], function () {
         Route::get('/', [\App\Http\Controllers\BookController::class, 'index'])->name('index');
+        Route::get('author/{author}', [\App\Http\Controllers\BookController::class, 'authorBooks'])->name('author');
         Route::get('/create', [\App\Http\Controllers\BookController::class, 'create'])->name('create');
         Route::post('/', [\App\Http\Controllers\BookController::class, 'store'])->name('store');
         Route::get('/{book}', [\App\Http\Controllers\BookController::class, 'show'])->name('show');
         Route::get('edit/{book}', [\App\Http\Controllers\BookController::class, 'edit'])->name('edit');
         Route::put('/{book}', [\App\Http\Controllers\BookController::class, 'update'])->name('update');
         Route::delete('/{book}', [\App\Http\Controllers\BookController::class, 'destroy'])->name('delete');
-        Route::get('api/{data}', [\App\Http\Controllers\BookController::class, 'apiData'])->name('api-data');
+        Route::post('api/sort-by', [\App\Http\Controllers\BookController::class, 'apiData'])->name('api-data');
     });
 });

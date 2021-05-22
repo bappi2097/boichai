@@ -1,12 +1,8 @@
 <aside class="left-sidebar" data-sidebarbg="skin6">
-    <!-- Sidebar scroll-->
     <div class="scroll-sidebar">
-        <!-- Sidebar navigation-->
         <nav class="sidebar-nav">
             <ul id="sidebarnav">
-                <!-- User Profile-->
                 <li>
-                    <!-- User Profile-->
                     <div class="user-profile d-flex no-block  m-t-20">
                         <div class="user-pic">
                             <img src="{{ asset('assets/images/users/male_avatar.svg') }}" alt="users"
@@ -20,12 +16,12 @@
                                 <span
                                     class="op-5 user-email">{{ auth()->user()->email ?? 'no.email@mail.com' }}</span>
                             </a>
-
                         </div>
                     </div>
                 </li>
                 <li class="sidebar-item">
-                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/" aria-expanded="false">
+                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ route('home') }}"
+                        aria-expanded="false">
                         <i class="mdi mdi-view-dashboard"></i>
                         <span class="hide-menu">Dashboard</span>
                     </a>
@@ -82,11 +78,7 @@
                         </li>
                     </ul>
                 </li>
-
             </ul>
-
         </nav>
-        <!-- End Sidebar navigation -->
     </div>
-    <!-- End Sidebar scroll-->
 </aside>

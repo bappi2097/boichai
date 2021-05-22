@@ -3,12 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Book;
-use App\Models\Country;
-use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 use App\Models\Author;
 use App\Models\Currency;
 use App\Models\Language;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use Brian2694\Toastr\Facades\Toastr;
 
 class BookController extends Controller
@@ -23,7 +22,23 @@ class BookController extends Controller
     public function index()
     {
         return view('admin-panel.books.index', [
-            'books' => Book::latest()->get(),
+            'books' => Book::with(['authors', 'prices', 'languages'])->latest()->get(),
+        ]);
+    }
+
+    /**
+     * Display a listing of the books bu author.
+     * 
+     * @Route("/home/books/author/{author}", methods={"GET"})
+     * 
+     * @return \Illuminate\Http\Response
+     */
+    public function authorBooks(Author $author)
+    {
+        $books = $author->books;
+
+        return view('admin-panel.books.index', [
+            'books' => $books,
         ]);
     }
 
@@ -162,7 +177,7 @@ class BookController extends Controller
                 'dimention' => 'required|string',
                 'publisher_name' => 'required|string',
                 'publication_date' => 'required|string',
-                'isbn' => 'required|string|unique:books,isbn,' . $book->isbn,
+                'isbn' => 'required|string|unique:books,isbn,' . $book->id,
                 'quantity' => 'required|numeric',
                 'amount' => 'required|array',
                 'amount.*' => 'required|numeric',
@@ -241,8 +256,19 @@ class BookController extends Controller
      * 
      * @return \Illuminate\Http\Response
      */
-    public function apiData($data)
+    public function apiData(Request $request)
     {
-        return Book::with('country')->latest()->get();
+        $data = [
+            'author' => $request->author,
+            'sortBy' => $request->sortBy,
+        ];
+        if (!empty($data['author'])) {
+            $books = Book::whereHas('authors', function ($query) use ($data) {
+                $query->whereIn('author_book.author_id', $data['author']);
+            })->with(['authors', 'prices', 'languages'])->orderBy($data['sortBy'])->get();
+        } else {
+            $books = Book::with(['authors', 'prices', 'languages'])->orderBy($data['sortBy'])->get();
+        }
+        return $books;
     }
 }

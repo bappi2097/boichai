@@ -21,13 +21,17 @@
                                         <th class="border-top-0">Action</th>
                                     </tr>
                                 </thead>
-                                <tbody>
+                                <tbody id="tbody">
                                     @foreach ($authors as $author)
                                         <tr>
                                             <td>{{ $author->name }}</td>
                                             <td>{{ $author->address }}</td>
                                             <td>{{ $author->country->name }}</td>
                                             <td class="d-flex justify-content-around">
+                                                <a href="{{ route('home.books.author', $author->id) }}"
+                                                    class="btn btn-secondary text-white" title="show">
+                                                    <i class="mdi mdi-book-multiple"></i>
+                                                </a>
                                                 <a href="{{ route('home.authors.show', $author->id) }}"
                                                     class="btn btn-success text-white" title="show">
                                                     <i class="mdi mdi-eye"></i>
@@ -42,8 +46,8 @@
                                                     <i class="mdi mdi-delete"></i>
                                                 </a>
                                                 <form id="delete-item{{ $author->id }}"
-                                                    action="{{ route('home.authors.delete', $author->id) }}" method="POST"
-                                                    class="d-none">
+                                                    action="{{ route('home.authors.delete', $author->id) }}"
+                                                    method="POST" class="d-none">
                                                     @csrf
                                                     @method('DELETE')
                                                 </form>
